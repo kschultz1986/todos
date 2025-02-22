@@ -1,0 +1,34 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "--sql\n            with delete as (\n                delete from todos\n                where id = $1\n            )\n            select id, title, completed\n            from todos where id != $1\n            order by id\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 1,
+        "name": "title",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 2,
+        "name": "completed",
+        "type_info": "Bool"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int4"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "885050b56c6123f3a6e78f184c5567948c2ddc689918aeabd51f787fb5c9475e"
+}
